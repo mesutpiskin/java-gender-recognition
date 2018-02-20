@@ -1,4 +1,4 @@
-package com.mesutpiskin.cnn;
+package com.mesutpiskin.dnn;
 
 import org.bytedeco.javacpp.indexer.Indexer;
 import org.bytedeco.javacv.Frame;
@@ -8,9 +8,9 @@ import static org.bytedeco.javacpp.opencv_dnn.*;
 import static org.bytedeco.javacpp.opencv_imgproc.resize;
 
 
-public class CNNClassification {
+public class DNNClassification {
     private Net net;
-    public CNNClassification() {
+    public DNNClassification() {
         try {
             net = new Net();
             File protobuf = new File(getClass().getResource("/files/deploy_gendernet.prototxt").toURI());
@@ -19,7 +19,7 @@ public class CNNClassification {
             importer.populateNet(net);
             importer.close();
         } catch (Exception e) {
-           //error management
+           //error
         }
     }
 
@@ -39,7 +39,7 @@ public class CNNClassification {
                 return "KADIN (FEMALE)";
             }
         } catch (Exception e) {
-            //error management
+            //error
         }
         return "NULL";
     }

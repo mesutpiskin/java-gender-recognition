@@ -1,4 +1,4 @@
-package com.mesutpiskin.cnn;
+package com.mesutpiskin.dnn;
 
 import net.coobird.thumbnailator.Thumbnails;
 import org.bytedeco.javacpp.opencv_core;
@@ -25,7 +25,7 @@ public class UICamera {
     private OpenCVFrameConverter.ToMat openCVFrameConverter = new OpenCVFrameConverter.ToMat();
     private volatile boolean running = false;
     private static Java2DFrameConverter java2DFrameConverter = new Java2DFrameConverter();
-    private CNNClassification cnnClassification = new CNNClassification();
+    private DNNClassification classifier = new DNNClassification();
     private JFrame window;
     private JPanel videoPanel;
     private opencv_objdetect.CvHaarClassifierCascade cvHaarClassifierCascade;
@@ -83,7 +83,7 @@ public class UICamera {
 
                 detectedFaces.entrySet().forEach(rectMatEntry -> {
 
-                    String gender = cnnClassification.classification(rectMatEntry.getValue(), frame);
+                    String gender = classifier.classification(rectMatEntry.getValue(), frame);
                     String caption = "Cinsiyet (Gender):" + gender + "";
                     rectangle(mat, new opencv_core.Point(rectMatEntry.getKey().x(), rectMatEntry.getKey().y()),
                             new opencv_core.Point(rectMatEntry.getKey().width() + rectMatEntry.getKey().x(), rectMatEntry.getKey().height() + rectMatEntry.getKey().y()),
