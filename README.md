@@ -29,3 +29,5 @@ https://gist.github.com/GilLevi/c9e99062283c719c03de
 JavaCV Nedir? http://mesutpiskin.com/blog/javacv-nedir.html
 
 OpenCV Wrappers http://mesutpiskin.com/blog/opencv-wrappers.html
+
+![cinsiyet tespiti](static/ss.png)
